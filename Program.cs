@@ -17,12 +17,12 @@ namespace _3_tests {
                 this.x = x;
                 this.y = y;
             }
-          public bool IsRightAngle(Point p1, Point p2) {
+          public bool DoTheVectorsFromStrightAngle(Point p1, Point p2) {
                 int a = p1.x - x;
                 int b = p2.y - y;
                 int c = p2.x - x;
                 int d = p1.y - y;
-                int sdv = a * b + c * d;
+                int sdv = a * c + b * d;
                 return (sdv == 0);
             }
         }
