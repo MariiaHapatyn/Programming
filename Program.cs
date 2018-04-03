@@ -9,28 +9,19 @@ namespace _3_tests {
         public class Point {
             private int x;
             private int y;
-            public int X {
-                get { return x; }
-                set { x = value; }
-            }
-            public int Y {
-                get { return y; }
-                set { y = value; }
-            }
+            public int X { get; set; }
+            public int Y { get; set; }
             
-            public Point () {
-                x = 0;
-                y = 0;
+            public Point (): this(x: 0, y: 0) { }
+            public Point (int x, int y) {
+                this.x = x;
+                this.y = y;
             }
-            public Point ( int x1, int y1 ) {
-                x = x1;
-                y = y1;
-            }
-            public bool IsRightAngle(Point p1, Point p2) {
+          public bool IsRightAngle(Point p1, Point p2) {
                 int a = p1.x - x;
-                int b = p1.y - y;
+                int b = p2.y - y;
                 int c = p2.x - x;
-                int d = p2.y - y;
+                int d = p1.y - y;
                 int sdv = a * b + c * d;
                 return (sdv == 0);
             }
@@ -40,23 +31,10 @@ namespace _3_tests {
             private Point b;
             private Point c;
             private Point d;
-            public Point A {
-                get { return a; }
-                set { a = value; }
-            }
-            public Point B {
-                get { return b; }
-                set { b = value; }
-            }
-            public Point C {
-                get { return c; }
-                set { c = value; }
-            }
-            public Point D {
-                get { return d; }
-                set { d = value; }
-            }
-
+            public Point A { get; set; } 
+            public Point B { get; set; }
+            public Point C { get; set; }
+            public Point D { get; set; }
             private void MakeClockwiseOrder() {
                 Point[ ] a1 = { a, b, c, d };
                 if (IsRightangle(a1)) {
@@ -102,11 +80,11 @@ namespace _3_tests {
                 }
             }
 
-            public Rectangle ( Point _a, Point _b, Point _c, Point _d ) {
-                a = _a;
-                b = _b;
-                c = _c;
-                d = _d;
+            public Rectangle ( Point a, Point b, Point c, Point d ) {
+               this.a = a;
+               this.b = b;
+               this.c = c;
+               this.d = d;
             }
 
             public double Distance ( Point a1, Point a2 ) {
